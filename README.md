@@ -24,14 +24,22 @@
 `sudo nmap -sV < ip-адрес >`
    ![Task](https://github.com/nick-mp/suricata-fail2ban/blob/main/img/1-4.png)
 
+##### пояснение: Так как проверка проводилась на чистой ubuntu на которой почти ничего не было, то и результатом явился единственный порт 80.
+
 
 ##### 2. Проведите атаку на подбор пароля для службы SSH:
 
+`для проверки атаки по словарю с использованием hydra на ubuntu установлен openssh-server`
+
    ![Task](https://github.com/nick-mp/suricata-fail2ban/blob/main/img/2.png)
-`Настройка hydra:`
-`создайте два файла: users.txt и pass.txt;`
-`в каждой строчке первого файла должны быть имена пользователей, второго — пароли. В нашем случае это могут быть случайные строки, но ради эксперимента можете добавить имя и пароль существующего пользователя.`
+
+`установлен fail2ban`
+
    ![Task](https://github.com/nick-mp/suricata-fail2ban/blob/main/img/2-1.png)
    ![Task](https://github.com/nick-mp/suricata-fail2ban/blob/main/img/2-2.png)
-`Включение защиты SSH для Fail2Ban: открыть файл /etc/fail2ban/jail.conf, найти секцию ssh,`
+
+`внесены настройки для Fail2Ban в файле /etc/fail2ban/jail.conf`
+
    ![Task](https://github.com/nick-mp/suricata-fail2ban/blob/main/img/2-3.png)
+
+##### результатом явилось помещение ip-адреса Kali в бан, и возможность перебора логинов и паролей стала недоступна
